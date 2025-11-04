@@ -6,6 +6,12 @@
     <title>AB WEB STUDIO - Votre Agence Web en Côte d'Ivoire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.postimg.cc/vZbw0rRZ/logo-png.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/vZbw0rRZ/logo-png.png">
+    <meta name="theme-color" content="#000000">
+
     <style>
         /* Variables et reset */
         :root {
@@ -1095,7 +1101,7 @@
             </div>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <h3>L'Excellence Web à Votre Service</h3>
+                    <h3>L'Excellence à Votre Service</h3>
                     <p>Fondée avec une vision claire : démocratiser l'accès au digital pour les entreprises ivoiriennes, AB WEB STUDIO s'est imposée comme une référence en matière de création de sites web sur mesure.</p>
                     <p>Notre équipe de passionnés combine expertise technique et créativité pour concevoir des solutions digitales qui ne se contentent pas de répondre à vos besoins, mais qui les transcendent.</p>
                     <p>Nous comprenons les spécificités du marché local et créons des expériences digitales qui parlent à votre audience, renforcent votre crédibilité et génèrent des résultats concrets.</p>
@@ -1288,14 +1294,14 @@
                     <p>"Le Pack Complet était parfait pour notre agence immobilière. L'équipe a su créer un site qui met en valeur nos propriétés et attire les bons clients. Le support après-vente est excellent et réactif. Un vrai partenariat de qualité."</p>
                     <div class="client-info">
                         <h4>Jean Kouassi</h4>
-                        <p>Directeur d'Agence Immobilière Côte d'Ivoire - Abidjan</p>
+                        <p>Directeur, Immobilière Côte d'Ivoire - Abidjan</p>
                     </div>
                 </div>
                 <div class="testimonial" data-aos="fade-up">
                     <p>"En tant que salon de coiffure, nous avions besoin d'un site simple mais efficace. Le Pack Éco nous a offert exactement ce qu'il nous fallait à un prix abordable. Notre visibilité en ligne a considérablement augmenté. Merci AB WEB STUDIO !"</p>
                     <div class="client-info">
-                        <h4>Amina Konaté</h4>
-                        <p>Propriétaire, Salon de Beauté Abidjan - Plateau</p>
+                        <h4>Amina Traoré</h4>
+                        <p>Propriétaire, Salon Beauty Abidjan - Plateau</p>
                     </div>
                 </div>
                 <div class="slider-controls">
@@ -1561,11 +1567,41 @@
             showTestimonial(currentTestimonial);
         }, 6000);
 
-        // Form submission
+        // Form submission avec WhatsApp
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            
+            // Récupère les données du formulaire
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Vérifie que tous les champs sont remplis
+            if (!name || !email || !phone || !subject || !message) {
+                alert('Veuillez remplir tous les champs du formulaire.');
+                return;
+            }
+            
+            // Crée le message WhatsApp formaté
+            const whatsappMessage = 
+                `📞 *NOUVEAU MESSAGE SITE WEB* 📞%0A%0A` +
+                `👤 *Nom:* ${name}%0A` +
+                `📧 *Email:* ${email}%0A` +
+                `📱 *Téléphone:* ${phone}%0A` +
+                `🎯 *Sujet:* ${subject}%0A` +
+                `💬 *Message:* ${message}%0A%0A` +
+                `_Message envoyé depuis abwebstudio.com_`;
+            
+            // Ouvre WhatsApp dans un nouvel onglet
+            window.open(`https://wa.me/2250141901862?text=${whatsappMessage}`, '_blank');
+            
+            // Réinitialise le formulaire
             this.reset();
+            
+            // Message de confirmation
+            alert('✅ Merci ! Vous allez être redirigé vers WhatsApp. Envoyez le message pré-rempli pour nous contacter.');
         });
 
         // Smooth scrolling for anchor links
@@ -1638,4 +1674,3 @@
     </script>
 </body>
 </html>
-
